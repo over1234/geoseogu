@@ -1,0 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.nav--Nav {
+  width: 100vw;
+  height: 8vh;
+  display: flex;
+  justify-content: space-around;
+  background-color: white;
+  border-bottom: 1px solid gainsboro;
+}
+
+.img--Nav {
+  width: 5%;
+  height: 100%;
+}
+
+.category {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.h1--Nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
