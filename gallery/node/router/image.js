@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const path = require('path');
 var multer = require('multer');
-const { Image } = require('../models/image_moudle');
+
 const upload = multer({
     storage: multer.diskStorage({
         destination: function (req, file, cb) {
@@ -20,26 +20,10 @@ router.get('/',(req, res) => {
 })
 
 router.post('/upload', upload.single('imageFile'), (req, res) => {
+    console.log('hi')
     let path = './images/' + req.file.filename;
-    const image = new Image([
-        { 
-            image_path : path 
-        }
-    ])
-    image.save((err, result) => {
-        if (err) {
-            res.json({
-                success: false,
-                massage: 'post data가 제대로 들어오지 않았습니다. 다시 시도해주겠습니까?'
-            });
-        }
-        else {
-            console.log('저장 완료')
-            res.status(200).json({
-                image_path : path
-            });
-        }
-    })
+    console.log(path)
+    res.status(200).json({image_path: path});
 });
 
 module.exports = router;
